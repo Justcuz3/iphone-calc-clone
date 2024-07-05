@@ -1,10 +1,22 @@
 let display = document.querySelector("#result");
+
 function show(input) {
-  display.value += input;
-}
+    if (input === '+/-') {
+      const currentValue = display.value;
+      if (currentValue.charAt(0) === '-') {
+        display.value = currentValue.substring(1);
+      } else {
+        display.value = '-' + currentValue;
+      }
+    } else {
+      display.value += input;
+    }
+  }
+
 function clearD() {
   display.value = "";
 }
+
 function calculate() {
   try {
     const result = evalExpression(display.value);
@@ -19,35 +31,40 @@ function calculate() {
 }
 
 function evalExpression(expression) {
-  const tokens = expression.match(/(\d+(\.\d+)?|\+|\-|\*|\/|%)/g);
-
-  let result = parseFloat(tokens[0]);
-
-  for (let i = 1; i < tokens.length; i += 2) {
-    const operator = tokens[i];
-    const operand = parseFloat(tokens[i + 1]);
-
-    switch (operator) {
-      case "+":
-        result += operand;
-        break;
-      case "-":
-        result -= operand;
-        break;
-      case "*":
-        result *= operand;
-        break;
-      case "/":
-        result /= operand;
-        break;
-      case "%":
-        result %= operand;
-        break;
+    const tokens = expression.match(/(-?\d+(?:\.\d+)?|\+|-|\*|\/|%)|(-?\d+(?:\.\d+)?)|([+*/%-])/g);
+  
+    let result = 0;
+    let operator = '+';
+  
+    for (let i = 0; i < tokens.length; i++) {
+      if (tokens[i] === '+' || tokens[i] === '-' || tokens[i] === '*' || tokens[i] === '/' || tokens[i] === '%') {
+        operator = tokens[i];
+      } else {
+        const operand = parseFloat(tokens[i]);
+  
+        switch (operator) {
+          case "+":
+            result += operand;
+            break;
+          case "-":
+            result -= operand;
+            break;
+          case "*":
+            result *= operand;
+            break;
+          case "/":
+            result /= operand;
+            break;
+          case "%":
+            result %= operand;
+            break;
+        }
+      }
     }
+  
+    return result;
   }
 
-  return result;
-}
 document.addEventListener("keydown", function(e) {
     if (e.key === "Backspace") {
         clearD();
@@ -59,6 +76,7 @@ document.addEventListener("keydown", function(e) {
     }
 
 });
+
 const lightToggle = document.querySelector("#toggle-light");
 const multiToggle = document.querySelector("#toggle-multi");
 const body = document.body;
