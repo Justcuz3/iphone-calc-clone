@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Justcuz3's Iphone Calc Clone</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <h1> Iphone calculator Clone</h1>
+    <button id="toggle-light" class="glow-on-hover">☀️</button>
+    <button id="toggle-multi" class="glow-on-hover">🌈</button>
+    <div class="calculator">
+        <input id="result" readonly>
+        <div class="btn">
+
+            <button class="gray-btn" onclick="clearD()">C</button>
+            <button class="gray-btn" onclick="show('+-')">+/-</button>
+            <button class="gray-btn" onclick="show('%')">%</button>
+            <button class="yellow-btn" onclick="show('/')">/</button>
+            <button class="black-btn" onclick="show('7')">7</button>
+            <button class="black-btn" onclick="show('8')">8</button>
+            <button class="black-btn" onclick="show('9')">9</button>
+            <button class="yellow-btn" onclick="show('*')">*</button>
+            <button class="black-btn" onclick="show('4')">4</button>
+            <button class="black-btn" onclick="show('5')">5</button>
+            <button class="black-btn" onclick="show('6')">6</button>
+            <button class="yellow-btn" onclick="show('-')">-</button>
+            <button class="black-btn" onclick="show('1')">1</button>
+            <button class="black-btn" onclick="show('2')">2</button>
+            <button class="black-btn" onclick="show('3')">3</button>
+            <button class="yellow-btn" onclick="show('+')">+</button>
+            <button class="black-btn sp" onclick="show('0')">0</button>
+            <button class="black-btn " onclick="show('.')">.</button>
+            <button class="yellow-btn" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <footer>
+        <p>Justcuz3's Clone of the IOS calculator for testing purposes.</p>
+    </footer>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
