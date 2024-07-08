@@ -8,6 +8,31 @@ body {
   position: relative;
 }
 
+/* Media Queries for responsiveness */
+@media (min-width: 576px) {
+  .calculator {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .calculator {
+    width: 70%;
+  }
+}
+
+@media (min-width: 992px) {
+  .calculator {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .calculator {
+    width: 50%;
+  }
+}
+
 /* ----------/ / THEMES / /----------*/
 
 #toggle-light {
